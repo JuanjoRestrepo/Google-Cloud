@@ -1,4 +1,3 @@
-
 WITH cte AS (
 	SELECT * FROM bike_share_yr_0
 	UNION ALL
@@ -16,7 +15,7 @@ riders,
 price,
 COGS,
 riders * price AS revenue,
-(riders * price) - COGS AS profit
+(riders * price) - (COGS*riders) AS profit
 FROM cte a
 LEFT JOIN cost_table b
 ON a.yr = b.yr
